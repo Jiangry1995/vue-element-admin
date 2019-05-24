@@ -9,14 +9,19 @@ function resolve(dir) {
 const name = defaultSettings.title || 'vue Element Admin' // page title
 const port = 9527 // dev port
 
-// All configuration item explanations can be find in https://cli.vuejs.org/config/
+// All configuration item explanations can be find in https://cli.vuejs.org/config/  所有配置项说明都可以在https://cli.vuejs.org/config/中找到
 module.exports = {
   /**
    * You will need to set publicPath if you plan to deploy your site under a sub path,
+   * 如果您计划在子路径下部署站点，则需要设置publicPath，
    * for example GitHub Pages. If you plan to deploy your site to https://foo.github.io/bar/,
+   * 例如GitHub Pages。 如果您计划将您的网站部署到https://foo.github.io/bar/，
    * then publicPath should be set to "/bar/".
+   * 然后将publicPath设置为“/ bar /”。
    * In most cases please use '/' !!!
+   * 在大多数情况下，请使用'/'!!!
    * Detail: https://cli.vuejs.org/config/#publicpath
+   * 详情：https：//cli.vuejs.org/config/#publicpath
    */
   publicPath: '/',
   outputDir: 'dist',
@@ -44,8 +49,8 @@ module.exports = {
     after: require('./mock/mock-server.js')
   },
   configureWebpack: {
-    // provide the app's title in webpack's name field, so that
-    // it can be accessed in index.html to inject the correct title.
+    // provide the app's title in webpack's name field, so that  在webpack的名称字段中提供应用程序的标题，以便
+    // it can be accessed in index.html to inject the correct title.  可以在index.html中访问它以注入正确的标题。
     name: name,
     resolve: {
       alias: {
@@ -98,7 +103,7 @@ module.exports = {
             .plugin('ScriptExtHtmlWebpackPlugin')
             .after('html')
             .use('script-ext-html-webpack-plugin', [{
-            // `runtime` must same as runtimeChunk name. default is `runtime`
+            // `runtime` must same as runtimeChunk name. default is `runtime`  `runtime`必须与runtimeChunk名称相同。 默认是`runtime`
               inline: /runtime\..*\.js$/
             }])
             .end()
@@ -110,17 +115,17 @@ module.exports = {
                   name: 'chunk-libs',
                   test: /[\\/]node_modules[\\/]/,
                   priority: 10,
-                  chunks: 'initial' // only package third parties that are initially dependent
+                  chunks: 'initial' // only package third parties that are initially dependent 仅包括最初依赖的第三方
                 },
                 elementUI: {
-                  name: 'chunk-elementUI', // split elementUI into a single package
-                  priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
-                  test: /[\\/]node_modules[\\/]_?element-ui(.*)/ // in order to adapt to cnpm
+                  name: 'chunk-elementUI', // split elementUI into a single package 将elementII拆分为单个包
+                  priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app  重量需要大于libs和app，否则它将被打包到libs或app中
+                  test: /[\\/]node_modules[\\/]_?element-ui(.*)/ // in order to adapt to cnpm 为了适应cnpm
                 },
                 commons: {
                   name: 'chunk-commons',
-                  test: resolve('src/components'), // can customize your rules
-                  minChunks: 3, //  minimum common number
+                  test: resolve('src/components'), // can customize your rules 可以自定义您的规则
+                  minChunks: 3, //  minimum common number 最小公共号码
                   priority: 5,
                   reuseExistingChunk: true
                 }

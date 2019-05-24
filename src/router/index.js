@@ -16,27 +16,29 @@ import nestedRouter from './modules/nested'
  * Note: sub-menu only appear when route children.length >= 1
  * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
  *
- * hidden: true                   if set true, item will not show in the sidebar(default is false)
- * alwaysShow: true               if set true, will always show the root menu
- *                                if not set alwaysShow, when item has more than one children route,
- *                                it will becomes nested mode, otherwise not show the root menu
- * redirect: noRedirect           if set noRedirect will no redirect in the breadcrumb
- * name:'router-name'             the name is used by <keep-alive> (must set!!!)
+ * hidden: true                   if set true, item will not show in the sidebar(default is false)/如果设置为true，则项目不会显示在侧栏中（默认为false）
+ * alwaysShow: true               if set true, will always show the root menu/如果设置为true，将始终显示根菜单
+ *                                if not set alwaysShow, when item has more than one children route,/如果未设置则始终显示，当项目有多个子路径时
+ *                                it will becomes nested mode, otherwise not show the root menu/它将成为嵌套模式，否则不会显示根菜单
+ * redirect: noRedirect           if set noRedirect will no redirect in the breadcrumb/如果设置noRedirect将不会在面包屑中重定向
+ * name:'router-name'             the name is used by <keep-alive> (must set!!!)/该名称由<keep-alive>使用（必须设置!!!）
  * meta : {
-    roles: ['admin','editor']    control the page roles (you can set multiple roles)
-    title: 'title'               the name show in sidebar and breadcrumb (recommend set)
-    icon: 'svg-name'             the icon show in the sidebar
-    noCache: true                if set true, the page will no be cached(default is false)
-    affix: true                  if set true, the tag will affix in the tags-view
-    breadcrumb: false            if set false, the item will hidden in breadcrumb(default is true)
-    activeMenu: '/example/list'  if set path, the sidebar will highlight the path you set
+    roles: ['admin','editor']    control the page roles (you can set multiple roles)/控制页面角色（可以设置多个角色）
+    title: 'title'               the name show in sidebar and breadcrumb (recommend set)/侧边栏和面包屑中显示的名称（推荐集）
+    icon: 'svg-name'             the icon show in the sidebar/侧边栏中的图标显示
+    noCache: true                if set true, the page will no be cached(default is false)/如果设置为true，则不会缓存页面（默认为false）
+    affix: true                  if set true, the tag will affix in the tags-view/如果设置为true，则标记将粘贴在tags-view中
+    breadcrumb: false            if set false, the item will hidden in breadcrumb(default is true)/如果设置为false，该项将隐藏在痕迹中（默认为true）
+    activeMenu: '/example/list'  if set path, the sidebar will highlight the path you set/如果设置路径，侧边栏将突出显示您设置的路径
   }
  */
 
 /**
  * constantRoutes
  * a base page that does not have permission requirements
+ * 没有权限要求的基本页
  * all roles can be accessed
+ * 可以访问所有角色
  */
 export const constantRoutes = [
   {
@@ -113,18 +115,19 @@ export const constantRoutes = [
 /**
  * asyncRoutes
  * the routes that need to be dynamically loaded based on user roles
+ * 需要根据用户角色动态加载的路由
  */
 export const asyncRoutes = [
   {
     path: '/permission',
     component: Layout,
     redirect: '/permission/page',
-    alwaysShow: true, // will always show the root menu
+    alwaysShow: true, // will always show the root menu/将始终显示根菜单
     name: 'Permission',
     meta: {
       title: 'permission',
       icon: 'lock',
-      roles: ['admin', 'editor'] // you can set roles in root nav
+      roles: ['admin', 'editor'] // you can set roles in root nav/您可以在根导航中设置角色
     },
     children: [
       {
@@ -133,7 +136,7 @@ export const asyncRoutes = [
         name: 'PagePermission',
         meta: {
           title: 'pagePermission',
-          roles: ['admin'] // or you can only set roles in sub nav
+          roles: ['admin'] // or you can only set roles in sub nav / 或者您只能在子导航中设置角色
         }
       },
       {
@@ -142,7 +145,7 @@ export const asyncRoutes = [
         name: 'DirectivePermission',
         meta: {
           title: 'directivePermission'
-          // if do not set roles, means: this page does not require permission
+          // if do not set roles, means: this page does not require permission / 如果不设置角色，则表示：此页面不需要权限
         }
       },
       {
@@ -170,7 +173,7 @@ export const asyncRoutes = [
     ]
   },
 
-  /** when your routing map is too long, you can split it into small modules **/
+  /** when your routing map is too long, you can split it into small modules/当您的路由映射太长时，您可以将其拆分为小模块 **/
   componentsRouter,
   chartsRouter,
   nestedRouter,
