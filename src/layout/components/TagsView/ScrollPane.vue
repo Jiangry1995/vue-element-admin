@@ -1,4 +1,5 @@
 <template>
+  <!--滚动窗格-->
   <el-scrollbar ref="scrollContainer" :vertical="false" class="scroll-container" @wheel.native.prevent="handleScroll">
     <slot />
   </el-scrollbar>
@@ -34,7 +35,7 @@ export default {
       let firstTag = null
       let lastTag = null
 
-      // find first tag and last tag
+      // find first tag and last tag  找到第一个标签和最后一个标签
       if (tagList.length > 0) {
         firstTag = tagList[0]
         lastTag = tagList[tagList.length - 1]
@@ -45,15 +46,15 @@ export default {
       } else if (lastTag === currentTag) {
         $scrollWrapper.scrollLeft = $scrollWrapper.scrollWidth - $containerWidth
       } else {
-        // find preTag and nextTag
+        // find preTag and nextTag  找到preTag和nextTag
         const currentIndex = tagList.findIndex(item => item === currentTag)
         const prevTag = tagList[currentIndex - 1]
         const nextTag = tagList[currentIndex + 1]
 
-        // the tag's offsetLeft after of nextTag
+        // the tag's offsetLeft after of nextTag  nextTag后标签的offsetLeft
         const afterNextTagOffsetLeft = nextTag.$el.offsetLeft + nextTag.$el.offsetWidth + tagAndTagSpacing
 
-        // the tag's offsetLeft before of prevTag
+        // the tag's offsetLeft before of prevTag  prevTag之前的标签的offsetLeft
         const beforePrevTagOffsetLeft = prevTag.$el.offsetLeft - tagAndTagSpacing
 
         if (afterNextTagOffsetLeft > $scrollWrapper.scrollLeft + $containerWidth) {

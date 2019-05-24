@@ -1,4 +1,5 @@
 <template>
+  <!--切换语言-->
   <el-dropdown trigger="click" class="international" @command="handleSetLanguage">
     <div>
       <svg-icon class-name="international-icon" icon-class="language" />

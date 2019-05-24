@@ -1,12 +1,13 @@
 
 <template>
-  <!-- eslint-disable vue/require-component-is -->
+  <!-- eslint-disable vue/require-component-is （eslint-禁用）-->
   <component v-bind="linkProps(to)">
     <slot />
   </component>
 </template>
 
 <script>
+// 验证（地址）
 import { isExternal } from '@/utils/validate'
 
 export default {

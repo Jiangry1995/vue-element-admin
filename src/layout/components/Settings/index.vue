@@ -1,28 +1,26 @@
 <template>
+  <!--右边浮动的设置-->
   <div class="drawer-container">
     <div>
+      <!--设置-“系统布局配置”-->
       <h3 class="drawer-title">{{ $t('settings.title') }}</h3>
-
+      <!--设置-主题-->
       <div class="drawer-item">
-        <!--主题-->
         <span>{{ $t('settings.theme') }}</span>
         <theme-picker style="float: right;height: 26px;margin: -3px 8px 0 0;" @change="themeChange" />
       </div>
-
+      <!--设置-代码视图/面包屑-->
       <div class="drawer-item">
-        <!--代码视图/面包屑-->
         <span>{{ $t('settings.tagsView') }}</span>
         <el-switch v-model="tagsView" class="drawer-switch" />
       </div>
-
+      <!--设置-右侧-头部-->
       <div class="drawer-item">
-        <!--右侧-头部-->
         <span>{{ $t('settings.fixedHeader') }}</span>
         <el-switch v-model="fixedHeader" class="drawer-switch" />
       </div>
-
+      <!--设置-左上-logo-->
       <div class="drawer-item">
-        <!--左上-logo-->
         <span>{{ $t('settings.sidebarLogo') }}</span>
         <el-switch v-model="sidebarLogo" class="drawer-switch" />
       </div>
